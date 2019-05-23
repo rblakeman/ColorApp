@@ -12,6 +12,8 @@ const styles = {
   }
 }
 
+const API_ACCESS_KEY = process.env.REACT_APP_apiAccessKey
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -49,7 +51,7 @@ class App extends Component {
 
   pictureAPI(name, idx) {
     fetch(
-      `https://api.unsplash.com/search/photos?page=1&query=${name}&client_id=***REMOVED***`
+      `https://api.unsplash.com/search/photos?page=1&query=${name}&client_id=${API_ACCESS_KEY}`
     )
       .then((response) => {
         return response.json()
