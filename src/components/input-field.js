@@ -62,7 +62,7 @@ export default class InputField extends Component {
           <br />
           Pictures from:{' '}
           <a style={styles.hrefs} href="https://unsplash.com/">
-            Unsplash
+            Unsplash API
           </a>{' '}
           <br />
           Max requests of ~50 pictures/hr

@@ -31,7 +31,7 @@ class App extends Component {
   colorAPI(color) {
     this.setState({ urls: [] })
     fetch(
-      `http://www.thecolorapi.com/scheme?hex=${color}&mode=quad&format=json`
+      `https://www.thecolorapi.com/scheme?hex=${color}&mode=quad&format=json`
     )
       .then((response) => {
         return response.json()
