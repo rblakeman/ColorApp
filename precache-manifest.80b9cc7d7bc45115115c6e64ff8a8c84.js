@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "6718d811c467fdbdfd31",
+    "revision": "0b8493b9970fc5e921db",
     "url": "/ColorApp/static/css/main.f53617a4.chunk.css"
   },
   {
-    "revision": "6718d811c467fdbdfd31",
-    "url": "/ColorApp/static/js/main.6718d811.chunk.js"
+    "revision": "0b8493b9970fc5e921db",
+    "url": "/ColorApp/static/js/main.0b8493b9.chunk.js"
   },
   {
     "revision": "a56a5917c536058c0b9f",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/ColorApp/static/js/runtime~main.38ff7dda.js"
   },
   {
-    "revision": "aec16ccbb6b25a6feddf0b5bcdce6ba6",
+    "revision": "67ed52e7bb7b720b11f6573cce6e3500",
     "url": "/ColorApp/index.html"
   }
 ];
