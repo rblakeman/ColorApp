@@ -1,13 +1,15 @@
 {
-  "main.css": "/ColorApp/static/css/main.f53617a4.chunk.css",
-  "main.js": "/ColorApp/static/js/main.0b8493b9.chunk.js",
-  "main.js.map": "/ColorApp/static/js/main.0b8493b9.chunk.js.map",
-  "static/js/1.a56a5917.chunk.js": "/ColorApp/static/js/1.a56a5917.chunk.js",
-  "static/js/1.a56a5917.chunk.js.map": "/ColorApp/static/js/1.a56a5917.chunk.js.map",
-  "runtime~main.js": "/ColorApp/static/js/runtime~main.38ff7dda.js",
-  "runtime~main.js.map": "/ColorApp/static/js/runtime~main.38ff7dda.js.map",
-  "static/css/main.f53617a4.chunk.css.map": "/ColorApp/static/css/main.f53617a4.chunk.css.map",
-  "index.html": "/ColorApp/index.html",
-  "precache-manifest.80b9cc7d7bc45115115c6e64ff8a8c84.js": "/ColorApp/precache-manifest.80b9cc7d7bc45115115c6e64ff8a8c84.js",
-  "service-worker.js": "/ColorApp/service-worker.js"
+  "files": {
+    "main.css": "/ColorApp/static/css/main.7fddbc56.chunk.css",
+    "main.js": "/ColorApp/static/js/main.48d998bf.chunk.js",
+    "main.js.map": "/ColorApp/static/js/main.48d998bf.chunk.js.map",
+    "runtime~main.js": "/ColorApp/static/js/runtime~main.df237937.js",
+    "runtime~main.js.map": "/ColorApp/static/js/runtime~main.df237937.js.map",
+    "static/js/2.3d9fb332.chunk.js": "/ColorApp/static/js/2.3d9fb332.chunk.js",
+    "static/js/2.3d9fb332.chunk.js.map": "/ColorApp/static/js/2.3d9fb332.chunk.js.map",
+    "index.html": "/ColorApp/index.html",
+    "precache-manifest.538951b56cd4b0579438ef66650ebd9e.js": "/ColorApp/precache-manifest.538951b56cd4b0579438ef66650ebd9e.js",
+    "service-worker.js": "/ColorApp/service-worker.js",
+    "static/css/main.7fddbc56.chunk.css.map": "/ColorApp/static/css/main.7fddbc56.chunk.css.map"
+  }
 }
