@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 
+import './App.css';
 import InputField from './components/input-field';
 import ColorSquare from './components/color-square';
 import UnsplashPicture from './components/unsplash-picture';
@@ -44,9 +44,12 @@ const defaultColors = {
 class App extends Component {
     constructor(props) {
         super(props);
+
         this.colorAPI = this.colorAPI.bind(this);
         this.pictureAPI = this.pictureAPI.bind(this);
         this.colorAPI('12ab5f');
+
+        console.log('last updated: March 16, 2021');
     }
 
     state = {
