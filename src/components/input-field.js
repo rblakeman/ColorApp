@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import Color_Icon from '@material-ui/icons/ColorLensOutlined'
+import ColorIcon from '@material-ui/icons/ColorLensOutlined'
 const styles = {
   container: {
     display: 'flex',
@@ -11,11 +11,10 @@ const styles = {
     flexWrap: 'wrap'
   },
   info: {
-    display: 'flex',
+    display: 'inline',
     flexDirection: 'column',
-    padding: 20,
     minWidth: '242px',
-    display: 'inline'
+    padding: 20
   },
   hrefs: {
     textDecoration: 'none',
@@ -46,7 +45,7 @@ export default class InputField extends Component {
   render() {
     return (
       <div style={styles.container}>
-        <Color_Icon
+        <ColorIcon
           style={{
             width: '10%',
             height: '10%',

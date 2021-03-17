@@ -11,10 +11,10 @@ export default class ColorSquare extends Component {
   }
 
   render() {
-    let hex = this.props.color.substr(1)
-    // hex = this.reverse(hex)
-    hex = hex[4] + hex[5] + hex[2] + hex[3] + hex[0] + hex[1]
-    hex = '#' + hex
+    // let hex = this.props.color.substr(1)
+    // // hex = this.reverse(hex)
+    // hex = hex[4] + hex[5] + hex[2] + hex[3] + hex[0] + hex[1]
+    // hex = '#' + hex
 
     return (
       <Card

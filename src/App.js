@@ -14,6 +14,32 @@ const styles = {
 
 const API_ACCESS_KEY = process.env.REACT_APP_apiAccessKey
 
+// Return some shades if color api fetch fails
+const defaultColors = {
+    'colors': [
+        {
+            'hex': { 'value': '#000000' },
+            'name': { 'value': 'Black' }
+        },
+        {
+            'hex': { 'value': '#CC0000' },
+            'name': { 'value': 'Red' }
+        },
+        {
+            'hex': { 'value': '#00CC00' },
+            'name': { 'value': 'Green' }
+        },
+        {
+            'hex': { 'value': '#0000CC' },
+            'name': { 'value': 'Blue' }
+        },
+        {
+            'hex': { 'value': '#FFFFFF' },
+            'name': { 'value': 'White' }
+        }
+    ]
+}
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -34,6 +60,10 @@ class App extends Component {
       `https://www.thecolorapi.com/scheme?hex=${color}&mode=quad&format=json`
     )
       .then((response) => {
+        if (!response.ok) {
+            console.log('Issue communicating with Color API');
+            return { ...defaultColors };
+        }
         return response.json()
       })
       .then((data) => {
@@ -54,6 +84,10 @@ class App extends Component {
       `https://api.unsplash.com/search/photos?page=1&query=${name}&client_id=${API_ACCESS_KEY}`
     )
       .then((response) => {
+        if (!response.ok) {
+            console.log('Issue communicating with Unsplash API');
+            return { results: [] };
+        }
         return response.json()
       })
       .then((data) => {

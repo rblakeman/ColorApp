@@ -10,7 +10,7 @@ export default class UnsplashPicture extends Component {
           height: 250
         }}
       >
-        <img src={this.props.url} />
+        <img src={this.props.url} alt='Issue communicating with Unsplash API' />
       </Card>
     )
   }
