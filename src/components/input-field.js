@@ -37,11 +37,11 @@ export default class InputField extends Component {
 
     inputChange = (event) => {
         this.setState({ val: event.target.value });
-    }
+    };
 
     submitChange = (e) => {
         this.props.onInputSubmit(this.state.val);
-    }
+    };
 
     render() {
         return (
