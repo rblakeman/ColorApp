@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ColorApp/static/css/main.2a687e91.css",
-    "main.js": "/ColorApp/static/js/main.3ef82028.js",
+    "main.js": "/ColorApp/static/js/main.5c30c611.js",
     "index.html": "/ColorApp/index.html",
     "main.2a687e91.css.map": "/ColorApp/static/css/main.2a687e91.css.map",
-    "main.3ef82028.js.map": "/ColorApp/static/js/main.3ef82028.js.map"
+    "main.5c30c611.js.map": "/ColorApp/static/js/main.5c30c611.js.map"
   },
   "entrypoints": [
     "static/css/main.2a687e91.css",
-    "static/js/main.3ef82028.js"
+    "static/js/main.5c30c611.js"
   ]
 }
