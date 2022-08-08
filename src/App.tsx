@@ -8,7 +8,7 @@ import UnsplashPicture from './components/unsplash-picture';
 const styles = {
     colorRow: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row' as 'row',
         justifyContent: 'center'
     }
 };
@@ -41,15 +41,22 @@ const defaultColors = {
     ]
 };
 
-class App extends Component {
-    constructor(props) {
+type Props = {};
+type State = {
+    colors: string[],
+    names: string[],
+    urls: string[]
+};
+
+class App extends Component<Props, State> {
+    constructor(props: Props) {
         super(props);
 
         this.colorAPI = this.colorAPI.bind(this);
         this.pictureAPI = this.pictureAPI.bind(this);
         this.colorAPI('12ab5f');
 
-        console.log('last updated: June 17, 2022');
+        console.log('last updated: Aug 7, 2022');
     }
 
     state = {
@@ -58,7 +65,7 @@ class App extends Component {
         urls: ['', '', '', '', '']
     };
 
-    colorAPI(color) {
+    colorAPI(color: string) {
         this.setState({ urls: [] });
         fetch(
             `https://www.thecolorapi.com/scheme?hex=${color}&mode=quad&format=json`
@@ -73,10 +80,10 @@ class App extends Component {
                 return response.json();
             })
             .then((data) => {
-                const colors = data.colors.map((e) => {
+                const colors = data.colors.map((e: { hex: { value: string } } ) => {
                     return e.hex.value;
                 });
-                const names = data.colors.map((e, i) => {
+                const names = data.colors.map((e: { name: { value: string } }, i: number) => {
                     this.pictureAPI(e.name.value, i);
 
                     return e.name.value;
@@ -86,7 +93,7 @@ class App extends Component {
             });
     }
 
-    pictureAPI(name, idx) {
+    pictureAPI(name: string, idx: number) {
         fetch(
             `https://api.unsplash.com/search/photos?page=1&query=${name}&client_id=${API_ACCESS_KEY}`
         )
