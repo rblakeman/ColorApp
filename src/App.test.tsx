@@ -9,5 +9,5 @@ it('renders without crashing', () => {
     const root = createRoot(div);
     root.render(<App />);
 
-    root.unmount(div);
+    root.unmount();
 });
