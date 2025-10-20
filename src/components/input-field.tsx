@@ -1,33 +1,33 @@
-import React, { useState, ChangeEvent } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import ColorIcon from '@material-ui/icons/ColorLensOutlined';
+import ColorIcon from '@mui/icons-material/ColorLensOutlined';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import { type ChangeEvent, useState } from 'react';
 
 const styles = {
     container: {
         display: 'flex',
-        flexDirection: 'row' as 'row',
+        flexDirection: 'row' as const,
         alignItems: 'center',
         justifyContent: 'center',
-        flexWrap: 'wrap' as 'wrap'
+        flexWrap: 'wrap' as const,
     },
     info: {
         display: 'inline',
-        flexDirection: 'column' as 'column',
+        flexDirection: 'column' as const,
         minWidth: '242px',
-        padding: 20
+        padding: 20,
     },
     hrefs: {
         textDecoration: 'none',
         color: 'blue',
-        whiteSpace: 'nowrap' as 'nowrap'
+        whiteSpace: 'nowrap' as const,
     },
     textField: {
-        margin: 10
+        margin: 10,
     },
     submitButton: {
-        margin: 10
-    }
+        margin: 10,
+    },
 };
 
 type Props = {
@@ -37,7 +37,9 @@ type Props = {
 export default function InputField(props: Props) {
     const [val, setVal] = useState('12ab5f');
 
-    const inputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const inputChange = (
+        event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    ) => {
         setVal(event.target.value);
     };
 
@@ -52,16 +54,21 @@ export default function InputField(props: Props) {
                     width: '10%',
                     height: '10%',
                     minWidth: '75px',
-                    minHeight: '75px'
-                }} />
+                    minHeight: '75px',
+                }}
+            />
             <div style={styles.info}>
                 {'Colors from: '}
-                <a style={styles.hrefs} href="http://www.thecolorapi.com/">
+                <a
+                    style={styles.hrefs}
+                    href='http://www.thecolorapi.com/'>
                     The Color API
                 </a>
                 <br />
                 {'Pictures from: '}
-                <a style={styles.hrefs} href="https://unsplash.com/">
+                <a
+                    style={styles.hrefs}
+                    href='https://unsplash.com/'>
                     Unsplash API
                 </a>
                 <br />
@@ -69,18 +76,19 @@ export default function InputField(props: Props) {
             </div>
             <TextField
                 required={true}
-                id="outlined-required"
-                label="Hex Value"
+                id='outlined-required'
+                label='Hex Value'
                 style={styles.textField}
-                margin="normal"
-                variant="outlined"
+                margin='normal'
+                variant='outlined'
                 onChange={inputChange}
-                value={val} />
+                value={val}
+            />
             <Button
-                variant="contained"
+                variant='contained'
                 onClick={submitChange}
                 style={styles.submitButton}>
-            Submit
+                Submit
             </Button>
         </div>
     );

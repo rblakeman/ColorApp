@@ -1,51 +1,52 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import './App.css';
-import InputField from './components/input-field';
 import ColorSquare from './components/color-square';
+import InputField from './components/input-field';
 import UnsplashPicture from './components/unsplash-picture';
 
 const styles = {
     colorRow: {
         display: 'flex',
-        flexDirection: 'row' as 'row',
-        justifyContent: 'center'
-    }
+        flexDirection: 'row' as const,
+        justifyContent: 'center',
+    },
 };
 
-const API_ACCESS_KEY = process.env.REACT_APP_apiAccessKey;
+const API_ACCESS_KEY = import.meta.env.VITE_apiAccessKey;
 
 // Return some shades if color api fetch fails
 const defaultColors = {
-    'colors': [
+    colors: [
         {
-            'hex': { 'value': '#000000' },
-            'name': { 'value': 'Black' }
+            hex: { value: '#000000' },
+            name: { value: 'Black' },
         },
         {
-            'hex': { 'value': '#CC0000' },
-            'name': { 'value': 'Red' }
+            hex: { value: '#CC0000' },
+            name: { value: 'Red' },
         },
         {
-            'hex': { 'value': '#00CC00' },
-            'name': { 'value': 'Green' }
+            hex: { value: '#00CC00' },
+            name: { value: 'Green' },
         },
         {
-            'hex': { 'value': '#0000CC' },
-            'name': { 'value': 'Blue' }
+            hex: { value: '#0000CC' },
+            name: { value: 'Blue' },
         },
         {
-            'hex': { 'value': '#FFFFFF' },
-            'name': { 'value': 'White' }
-        }
-    ]
+            hex: { value: '#FFFFFF' },
+            name: { value: 'White' },
+        },
+    ],
 };
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 type Props = {};
 type State = {
-    colors: string[],
-    names: string[],
-    urls: string[]
+    colors: string[];
+    names: string[];
+    urls: string[];
 };
 
 class App extends Component<Props, State> {
@@ -62,13 +63,13 @@ class App extends Component<Props, State> {
     state = {
         colors: [],
         names: [],
-        urls: ['', '', '', '', '']
+        urls: ['', '', '', '', ''],
     };
 
     colorAPI(color: string) {
         this.setState({ urls: [] });
         fetch(
-            `https://www.thecolorapi.com/scheme?hex=${color}&mode=quad&format=json`
+            `https://www.thecolorapi.com/scheme?hex=${color}&mode=quad&format=json`,
         )
             .then((response) => {
                 if (!response.ok) {
@@ -80,14 +81,18 @@ class App extends Component<Props, State> {
                 return response.json();
             })
             .then((data) => {
-                const colors = data.colors.map((e: { hex: { value: string } } ) => {
-                    return e.hex.value;
-                });
-                const names = data.colors.map((e: { name: { value: string } }, i: number) => {
-                    this.pictureAPI(e.name.value, i);
+                const colors = data.colors.map(
+                    (e: { hex: { value: string } }) => {
+                        return e.hex.value;
+                    },
+                );
+                const names = data.colors.map(
+                    (e: { name: { value: string } }, i: number) => {
+                        this.pictureAPI(e.name.value, i);
 
-                    return e.name.value;
-                });
+                        return e.name.value;
+                    },
+                );
 
                 this.setState({ colors, names });
             });
@@ -95,11 +100,13 @@ class App extends Component<Props, State> {
 
     pictureAPI(name: string, idx: number) {
         fetch(
-            `https://api.unsplash.com/search/photos?page=1&query=${name}&client_id=${API_ACCESS_KEY}`
+            `https://api.unsplash.com/search/photos?page=1&query=${name}&client_id=${API_ACCESS_KEY}`,
         )
             .then((response) => {
                 if (!response.ok) {
-                    console.log('Issue communicating with Unsplash API, rate limited to 50 pictures per hour');
+                    console.log(
+                        'Issue communicating with Unsplash API, rate limited to 50 pictures per hour',
+                    );
 
                     return { results: [] };
                 }
@@ -109,7 +116,7 @@ class App extends Component<Props, State> {
             .then((data) => {
                 if (data.results[0]) {
                     const url = data.results[0].urls.small;
-                    let newURLs = this.state.urls;
+                    const newURLs = this.state.urls;
                     newURLs[idx] = url;
                     this.setState({ urls: newURLs });
                 }
@@ -118,16 +125,27 @@ class App extends Component<Props, State> {
 
     render() {
         return (
-            <div className="App">
+            <div className='App'>
                 <InputField onInputSubmit={this.colorAPI} />
                 <div style={styles.colorRow}>
                     {this.state.colors.map((e, i) => {
-                        return <ColorSquare key={i} color={e} name={this.state.names[i]} />;
+                        return (
+                            <ColorSquare
+                                key={i}
+                                color={e}
+                                name={this.state.names[i]}
+                            />
+                        );
                     })}
                 </div>
                 <div style={styles.colorRow}>
                     {this.state.urls.map((e, i) => {
-                        return <UnsplashPicture key={i} url={e} />;
+                        return (
+                            <UnsplashPicture
+                                key={i}
+                                url={e}
+                            />
+                        );
                     })}
                 </div>
             </div>
