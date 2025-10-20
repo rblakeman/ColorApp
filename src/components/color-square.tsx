@@ -1,5 +1,4 @@
-import React from 'react';
-import Card from '@material-ui/core/Card';
+import Card from '@mui/material/Card';
 
 type Props = {
     color: string;
@@ -7,13 +6,13 @@ type Props = {
 };
 
 export default function ColorSquare(props: Props) {
-    const reverse = (str: string): string => {
-        if (str === '') {
-            return '';
-        }
+    // const reverse = (str: string): string => {
+    //     if (str === '') {
+    //         return '';
+    //     }
 
-        return reverse(str.substr(1)) + str.charAt(0);
-    };
+    //     return reverse(str.substr(1)) + str.charAt(0);
+    // };
 
     // let hex = this.props.color.substr(1)
     // // hex = this.reverse(hex)
@@ -27,7 +26,7 @@ export default function ColorSquare(props: Props) {
                 height: 100,
                 color: 'white',
                 backgroundColor: props.color,
-                textAlign: 'center'
+                textAlign: 'center',
             }}>
             {props.name}
         </Card>
